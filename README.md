@@ -80,7 +80,6 @@ $('#agregarAmigo').click(function() {
 ---
 
 ## Créditos
-- **Autor**: [Tu Nombre]
 - **Tecnologías**: jQuery, HTML, CSS
 
 ---
