@@ -1,16 +1,37 @@
 $(document).ready(function () {
+    // Función para agregar un amigo a la lista
+    function agregarAmigo() {
+        const amigo = $('#amigo').val().trim();
+        if (amigo) {
+            $('#listaAmigos').append(`<li>${amigo}</li>`);
+            $('#amigo').val('').focus();
+        } else {
+            alert('Por favor, escribe un nombre válido.');
+        }
+    }
 
-	$('#agregarAmigo').click(function () {
-		const texto = $('#amigo').val().trim(); // Obtener texto del input
-		if (texto) { // Verificar si no está vacío
-			$('#listaAmigos').append(`<li>${texto}</li>`); // Agregar a la lista
-			$('#amigo').val(''); // Limpiar el cuadro de texto
-		} else {
-			alert('Por favor, escribe algo antes de agregar.');
-		}
-	});
+    // Función para sortear un amigo
+    function sortearAmigo() {
+        const amigos = $('#listaAmigos li');
+        if (amigos.length === 0) {
+            $('#resultado').text('La lista está vacía. Agrega amigos primero.');
+            return;
+        }
 
+        const indiceAleatorio = Math.floor(Math.random() * amigos.length);
+        const amigoSorteado = $(amigos[indiceAleatorio]).text();
+        $('#resultado').text(`Amigo sorteado: ${amigoSorteado}`);
+    }
 
+    // Asociar eventos a los botones
+    $('#agregarAmigo').on('click', agregarAmigo);
+    $('#sortearAmigo').on('click', sortearAmigo);
 
-
+    // Mejoras adicionales
+    // Permitir agregar amigos con la tecla Enter
+    $('#amigo').on('keypress', function (e) {
+        if (e.key === 'Enter') {
+            agregarAmigo();
+        }
+    });
 });
