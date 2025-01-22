@@ -85,5 +85,5 @@ $('#agregarAmigo').click(function() {
 ---
 
 ## Contacto
-Si tienes preguntas o comentarios sobre este proyecto, no dudes en contactarme a través de [tu correo electrónico o enlace profesional].
+Si tienes preguntas o comentarios sobre este proyecto, no dudes en contactarme.
 
